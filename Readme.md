@@ -1,6 +1,6 @@
 # 智慧医疗 KGQA 系统
 
-本项目实现了一个基于知识图谱 (KG) + GNN + RAG 的智慧医疗问答系统。系统通过 LLM 抽取医学知识构建 KG，再训练 GNN 对候选实体进行二分类，最后结合 RAG 进行问答推理。
+本项目实现了一个基于知识图谱 (KG) + GNN + GraphRAG 的智慧医疗问答系统。系统通过 LLM 抽取医学知识构建 KG，再训练 GNN 对候选实体进行s分类，最后结合 GraphRAG 进行问答推理。
 
 ---
 
@@ -12,7 +12,7 @@ project_root/
 ├── gen_gnn_queries.py     # 根据 KG 文本生成训练用 query
 ├── gen_gnn_train_data.py  # 根据 query + PPR + LLM 生成 GNN 训练数据 (X, y)
 ├── train_gnn.py           # 使用训练数据训练 GNN 模型
-├── rag_inference.py       # 使用 GNN + RAG 进行问答推理
+├── rag_inference.py       # 使用 GNN + GraphRAG 进行问答推理
 ├── knowledge.txt          # 医学文本数据
 ├── graph.pkl              # 保存的知识图谱
 ├── gnn_queries.pkl        # 保存的训练 query
