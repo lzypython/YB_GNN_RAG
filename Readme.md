@@ -114,14 +114,6 @@ python rag_inference.py
 
 ---
 
-## 注意事项
-
-1. LLM 输出可能包含 ` ```json ` 或多行 JSON，需要在 `gen_gnn_queries.py` 中进行解析。
-2. 训练 GNN 需要确保 `(X, y)` 数据与节点 embedding 对应。
-3. 可以根据需要调整 PPR topk 参数和 GNN 超参数。
-4. 建议先在小数据集上测试整个流程，确保接口和依赖正常。
-
----
 
 ## 测试样例
 
