@@ -13,7 +13,7 @@ project_root/
 ├── gen_gnn_train_data.py  # 根据 query + PPR + LLM 生成 GNN 训练数据 (X, y)
 ├── train_gnn.py           # 使用训练数据训练 GNN 模型
 ├── rag_inference.py       # 使用 GNN + RAG 进行问答推理
-├── data/medical_knowledge.txt  # 医学文本数据，每行一个片段
+├── knowledge.txt          # 医学文本数据
 ├── graph.pkl              # 保存的知识图谱
 ├── gnn_queries.pkl        # 保存的训练 query
 ├── gnn_train_data.pt      # GNN 训练数据
