@@ -52,7 +52,7 @@ def rag_query(query, G, gnn_model, topk=5, device=None):
     问题：{query}
     相关候选实体及上下文：
     {context}
-    请直接给出答案实体。
+    进行详细充分的回答。
     """
     resp = client.chat.completions.create(
         model="qwen2.5-7b",
@@ -73,6 +73,6 @@ if __name__ == "__main__":
     gnn_model = GCN(in_dim=node_emb_dim, hidden_dim=64)
     gnn_model.load_state_dict(torch.load(MODEL_PATH))
 
-    query = "购买医疗保险有什么建议吗？"
+    query = "医疗保险是什么？"
     ans = rag_query(query, G, gnn_model, topk=5)
     print(f"问：{query}\n答：{ans}")
