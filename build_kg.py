@@ -8,15 +8,15 @@ from tqdm import tqdm
 import openai
 
 # ========= 配置 =========
-DATA_PATH = "knowledge.txt"
-GRAPH_PATH = "graph.pkl"
-GRAPH_JSON_PATH = "graph.json"
+DATA_PATH = "knowledge_cx.txt"
+GRAPH_PATH = "graph_cx.pkl"
+GRAPH_JSON_PATH = "graph_cx.json"
 EMBED_MODEL = "/back-up/gzy/meta-comphrehensive-rag-benchmark-starter-kit/models/sentence-transformers/all-MiniLM-L6-v2/"
 
 # 初始化 OpenAI 客户端
 client = openai.OpenAI(
     api_key="empty",
-    base_url="http://localhost:6081/v1"
+    base_url="http://localhost:6082/v1"
 )
 
 # ========= 用 LLM 抽取实体和关系 =========

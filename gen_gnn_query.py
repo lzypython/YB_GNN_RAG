@@ -3,12 +3,12 @@ import openai
 import os
 from tqdm import tqdm
 
-GRAPH_PATH = "graph.pkl"
-OUTPUT_QUERIES_PATH = "gnn_queries.pkl"
+GRAPH_PATH = "graph_cx.pkl"
+OUTPUT_QUERIES_PATH = "gnn_queries_cx.pkl"
 
 client = openai.OpenAI(
     api_key="empty",
-    base_url="http://localhost:6081/v1"
+    base_url="http://localhost:6082/v1"
 )
 
 def generate_queries_from_text(texts, max_queries_per_text=3):

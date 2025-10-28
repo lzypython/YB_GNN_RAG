@@ -7,14 +7,14 @@ from tqdm import tqdm
 import openai
 import os
 
-GRAPH_PATH = "graph.pkl"
-QUERIES_PATH = "gnn_queries.pkl"
-TRAIN_DATA_PATH = "gnn_train_data.pt"
+GRAPH_PATH = "graph_cx.pkl"
+QUERIES_PATH = "gnn_queries_cx.pkl"
+TRAIN_DATA_PATH = "gnn_train_data_cx.pt"
 EMBED_MODEL = "/back-up/gzy/meta-comphrehensive-rag-benchmark-starter-kit/models/sentence-transformers/all-MiniLM-L6-v2/"
 
 client = openai.OpenAI(
     api_key="empty",
-    base_url="http://localhost:6081/v1"
+    base_url="http://localhost:6082/v1"
 )
 
 # PPR 获取候选实体

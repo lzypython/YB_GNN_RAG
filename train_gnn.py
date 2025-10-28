@@ -4,8 +4,8 @@ from torch_geometric.nn import GCNConv
 from torch_geometric.data import Data
 from tqdm import tqdm
 
-TRAIN_DATA_PATH = "gnn_train_data.pt"
-MODEL_PATH = "gnn_model.pt"
+TRAIN_DATA_PATH = "gnn_train_data_cx.pt"
+MODEL_PATH = "gnn_model_cx.pt"
 
 class GCN(torch.nn.Module):
     def __init__(self, in_dim, hidden_dim, out_dim=2):
