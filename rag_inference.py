@@ -12,7 +12,7 @@ EMBED_MODEL = "/back-up/gzy/meta-comphrehensive-rag-benchmark-starter-kit/models
 
 client = openai.OpenAI(
     api_key="empty",
-    base_url="http://localhost:6081/v1"
+    base_url="http://localhost:6082/v1"
 )
 
 def rag_query(query, G, gnn_model, topk=5, device=None):
@@ -117,7 +117,7 @@ def rag_query(query, G, gnn_model, topk=5, device=None):
     """
     
     resp = client.chat.completions.create(
-        model="qwen2.5-32b",
+        model="qwen2.5-7b",
         messages=[{"role": "user", "content": prompt}],
         temperature=0
     )
@@ -253,7 +253,7 @@ def rag_query_cx(query, G, gnn_model, topk=5, device=None):
     """
     
     resp = client.chat.completions.create(
-        model="qwen2.5-32b",
+        model="qwen2.5-7b",
         messages=[{"role": "user", "content": prompt}],
         temperature=0
     )
