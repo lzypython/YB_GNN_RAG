@@ -126,11 +126,11 @@ yw_rag_llm = get_llm_score(jsonpath_yw_rag)
 # print(f"YB_GNN_RAG 医疗保险数据集 BERTScore: {yw_YB_bert}")
 # print(f"GraphRAG 医疗保险数据集 BERTScore: {yw_graphrag_bert}")
 # 保存结果到 CSV
-with open("evaluation_comparison_yw2.csv", "w", newline='', encoding="utf-8") as csvfile:
+with open("evaluation_comparison_yw3.csv", "w", newline='', encoding="utf-8") as csvfile:
     fieldnames = ["Model", "LLM_Score"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
-    writer.writerow({"Model": "RAG", "LLM_Score": yw_rag_llm})
+    writer.writerow({"Model": "NavieRAG", "LLM_Score": yw_rag_llm})
     writer.writerow({"Model": "GraphRAG", "LLM_Score": yw_graphrag_llm})
     writer.writerow({"Model": "YB_GNN_RAG", "LLM_Score": yw_YB_llm})
 
@@ -148,11 +148,11 @@ cx_rag_llm = get_llm_score(jsonpath_cx_rag)
 # print(f"Y B_GNN_RAG 疾病查询数据集 BERTScore: {cx_YB_bert}")
 # print(f"GraphRAG 疾病查询数据集 BERTScore: {cx_graphrag_bert}")
 # 保存结果到 CSV
-with open("evaluation_comparison_cx2.csv", "w", newline='', encoding="utf-8") as csvfile:
+with open("evaluation_comparison_cx3.csv", "w", newline='', encoding="utf-8") as csvfile:
     fieldnames = ["Model", "LLM_Score"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
-    writer.writerow({"Model": "RAG", "LLM_Score": cx_rag_llm})
+    writer.writerow({"Model": "NavieRAG", "LLM_Score": cx_rag_llm})
     writer.writerow({"Model": "GraphRAG", "LLM_Score": cx_graphrag_llm})
     writer.writerow({"Model": "YB_GNN_RAG", "LLM_Score": cx_YB_llm})
 print("评估完成，结果已保存到 CSV 文件。")

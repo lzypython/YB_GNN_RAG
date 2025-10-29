@@ -6,7 +6,7 @@ import openai
 import re
 # 配置参数
 EMBED_MODEL = "/back-up/gzy/meta-comphrehensive-rag-benchmark-starter-kit/models/sentence-transformers/all-MiniLM-L6-v2/"
-DATA_PATH = "knowledge_yw.txt"
+DATA_PATH = "knowledge_cx.txt"
 
 # 初始化LLM客户端
 client = openai.OpenAI(
@@ -22,7 +22,7 @@ class SimpleRAG:
         self.chunks = []
         self.chunk_embeddings = None
         
-    def load_and_chunk_text(self, chunk_size=30, chunk_overlap=50):
+    def load_and_chunk_text(self, chunk_size=15, chunk_overlap=50):
         """加载文本并分块"""
         with open(DATA_PATH, 'r', encoding='utf-8') as f:
             text = f.read()
@@ -53,7 +53,7 @@ class SimpleRAG:
         # 生成嵌入向量
         self.chunk_embeddings = self.embed_model.encode(self.chunks)
         
-    def retrieve_chunks(self, query, top_k=1):
+    def retrieve_chunks(self, query, top_k=3):
         """根据query检索最相关的chunks"""
         query_embedding = self.embed_model.encode([query])
         similarities = cosine_similarity(query_embedding, self.chunk_embeddings)[0]
@@ -71,7 +71,7 @@ class SimpleRAG:
         
         # 构建prompt
         context = "\n\n".join(retrieved_chunks)
-        prompt = f"""基于以下背景信息回答问题,不确定就说不知道。
+        prompt = f"""基于以下背景信息简单回答问题,不确定就说不知道，不要猜测。
 
         {context}
 
@@ -132,7 +132,7 @@ if __name__ == "__main__":
 
     # 初始化系统
     init_rag_system()
-    qa_path = "rag_inference_results_yw.json"
+    qa_path = "medical_insurance_qa_cx.json"
     import json
     # 打开文件
     result_json = []
@@ -145,6 +145,6 @@ if __name__ == "__main__":
         result = rag_query(question)
         qa["predicted_answer"] = result["answer"]
         result_json.append(qa)
-    with open("rag_inference_results_yw_with_pred.json", 'w', encoding='utf-8') as f:
+    with open("rag_inference_results_cx_with_pred.json", 'w', encoding='utf-8') as f:
         json.dump(result_json, f, ensure_ascii=False, indent=4)
     print("完成问答生成，结果已保存。")
