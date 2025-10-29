@@ -147,3 +147,10 @@ python rag_inference.py
 ```
 ## 前端页面
 ![alt text](image.png)
+
+
+端口映射：
+ssh -L [本地IP:]本地端口:目标主机:目标端口 用户名@远程服务器
+
+# 示例：将远程MySQL端口(3306)映射到本地3307端口
+ssh -L 3307:localhost:3306 user@remote-server.com
